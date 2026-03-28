@@ -3,7 +3,7 @@ from flask_cors import CORS
 import pickle
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/predict": {"origins": "*"}})
 
 model = pickle.load(open("model.pkl", "rb"))
 
