@@ -3,13 +3,9 @@ from flask_cors import CORS
 import pickle
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 model = pickle.load(open("model.pkl", "rb"))
-
-@app.route("/")
-def home():
-    return "Backend is running"
 
 @app.route("/predict", methods=["POST"])
 def predict():
